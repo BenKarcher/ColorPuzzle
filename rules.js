@@ -193,18 +193,18 @@ const clues = [
                         if (p1 !== c) {
                             const dx = p1.x - c.x;
                             const dy = p1.y - c.y;
-                            if (tiles[c.y - dx] && tiles[c.y - dx][c.x + dy].color === i &&
-                                tiles[c.y - dy] && tiles[c.y - dy][c.x - dx].color === i &&
-                                tiles[c.y + dx] && tiles[c.y + dx][c.x - dy].color === i
+//                             if (tiles[c.y - dx] && tiles[c.y - dx][c.x + dy].color === i &&
+//                                 tiles[c.y - dy] && tiles[c.y - dy][c.x - dx].color === i &&
+//                                 tiles[c.y + dx] && tiles[c.y + dx][c.x - dy].color === i
+//                             ) {
+//                                 return true;
+//                             }
+                            if (0 <= c.x + dy && c.x + dy <= 5 && 0 <= c.y - dx && c.y - dx <= 5 && tiles[c.y - dx][c.x + dy].color === i &&
+                                0 <= c.x - dx && c.x - dx <= 5 && 0 <= c.y - dy && c.y - dy <= 5 && tiles[c.y - dy][c.x - dx].color === i &&
+                                0 <= c.x - dy && c.x - dy <= 5 && 0 <= c.y + dx && c.y + dx <= 5 && tiles[c.y + dx][c.x - dy].color === i
                             ) {
                                 return true;
                             }
-                            // if (0 <= c.x + dy && c.x + dy <= 5 && 0 <= c.y - dx && c.y - dx <= 5 && tiles[c.y - dx][c.x + dy].color === i &&
-                            //     0 <= c.x - dx && c.x - dx <= 5 && 0 <= c.y - dy && c.y - dy <= 5 && tiles[c.y - dy][c.x - dx].color === i &&
-                            //     0 <= c.x - dy && c.x - dy <= 5 && 0 <= c.y + dx && c.y + dx <= 5 && tiles[c.y + dx][c.x - dy].color === i
-                            // ) {
-                            //     return true;
-                            // }
                         }
                     }
                 }
