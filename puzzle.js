@@ -100,7 +100,8 @@ window.onload = function () {
   }
   setColor(1);
   document.onkeydown=function(e){
-    if(e.key in ["1","2","3","4","5","6","7"])
+    let color=parseInt(e.key)
+    if(color && color >=1 && color<=7)
       setColor(parseInt(e.key)-1);
   }
 };
