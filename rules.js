@@ -1,7 +1,7 @@
 const clues = [
     {
         description: "The orange fields form a filled square",
-        details: "There exists a axis aligned square such that all fields inside are orange and all fields outside are not",
+        details: "There exists an axis-aligned square such that all fields inside are orange and all fields outside are not",
         check: function () {
             const board = filter(6);
             const points = getpoints(6);
@@ -24,7 +24,7 @@ const clues = [
     },
     {
         description: "The red fields form a filled rectangle",
-        details: "There exists a axis aligned rectangle such that all fields inside are red and all fields outside are not",
+        details: "There exists an axis-aligned rectangle such that all fields inside are red and all fields outside are not",
         check: function () {
             const board = filter(5);
             const points = getpoints(5);
@@ -44,7 +44,7 @@ const clues = [
         }
     }, {
         description: "The blue fields are connected by knights moves",
-        details: "A knigt can travel to every blue field AT LEAST once without touching a non-blue field",
+        details: "A knight can travel to every blue field AT LEAST once without touching a non-blue field",
         check: function () {
             let targets = getpoints(1);
             if (targets.length === 0)
@@ -66,8 +66,8 @@ const clues = [
             return targets.length === 0;
         }
     }, {
-        description: "Every green fields borders a blue fields",
-        details: "For every green field there is at least one blue field orthogonaly ajacent",
+        description: "Every green field borders a blue field",
+        details: "For every green field, there is at least one blue field orthogonally adjacent",
         check: function () {
             const points = getpoints(3);
             const blues = filter(1);
@@ -90,8 +90,8 @@ const clues = [
             return true;
         }
     }, {
-        description: "no cold color repeats in a row or colomn",
-        details: "Blue, purple, green, and turquise each apear at most once in each row and colomn",
+        description: "No cold color repeats in a row or column",
+        details: "Blue, purple, green, and turquoise each appear at most once in each row and column",
         check: function () {
             for (let i = 1; i <= 4; i++) {
                 const points = getpoints(i);
@@ -107,8 +107,8 @@ const clues = [
             return true;
         }
     }, {
-        description: "the coloured fields form a single region",
-        details: "the fields that have a color form a single orthogonally connected region",
+        description: "The colored fields form a single region",
+        details: "The fields that have a color form a single orthogonally connected region",
         check: function () {
             let targets = tiles.flat().filter((tile) => tile.color);
             if (targets.length === 0)
@@ -130,8 +130,8 @@ const clues = [
             return targets.length === 0;
         }
     }, {
-        description: "exactly odd columns have an odd number of colored fields",
-        details: "every odd column has an odd number of colored fields and every even row does not (indexing starts at 1)",
+        description: "Exactly odd columns have an odd number of colored fields",
+        details: "Every odd column has an odd number of colored fields and every even row does not (indexing starts at 1)",
         check: function () {
             const points = getpoints(0);
             for (let i = 0; i < 6; i++)
@@ -140,24 +140,24 @@ const clues = [
             return true;
         }
     }, {
-        description: "every uncoloured field borders another one vertically",
-        details: "for every uncoloured field either the one above, the one bellow, or both are also uncoloured",
+        description: "Every uncolored field borders another one vertically",
+        details: "For every uncolored field either the one above, the one below, or both are also uncolored",
         check: function () {
             const points = getpoints(0);
             const blanks = filter(0);
             return points.every((p) => (p.y >= 1 && blanks[p.y - 1][p.x]) || (p.y <= 4 && blanks[p.y + 1][p.x]));
         }
     }, {
-        description: "every uncoloured fields is horizontaly two space away from another one",
-        details: "for every uncoloured field either 2 spaces (1 field in between) to the left, 2 spaces to the right, or both are also uncoloured",
+        description: "Every uncolored field is horizontally two space away from another one",
+        details: "For every uncolored field either 2 spaces (1 field in between) to the left, 2 spaces to the right, or both are also uncolored",
         check: function () {
             const points = getpoints(0);
             const blanks = filter(0);
             return points.every((p) => blanks[p.y][p.x - 2] || blanks[p.y][p.x + 2]);
         }
     }, {
-        description: "a row contains an even (non-0) number of uncoloured fields",
-        details: "At least one row has a even number of uncoloured fields other than 0",
+        description: "A row contains an even non-0 number of uncolored fields",
+        details: "At least one row has an even number of uncolored fields other than 0",
         check: function () {
             const blanks = filter(0);
             return blanks.some((row) => { let num = row.filter((x) => x).length; return num != 0 && num % 2 == 0 });
