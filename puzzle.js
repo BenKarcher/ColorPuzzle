@@ -15,6 +15,7 @@ function cycle(div,event){
   }else{
     div.color=selectedColor;
     if(div.style["background-color"]==colors[selectedColor]){
+      div.color=0;
       div.style["background-color"]="white";
     }else{
       div.style["background-color"]=colors[selectedColor];
