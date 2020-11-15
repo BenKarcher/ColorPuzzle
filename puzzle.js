@@ -92,7 +92,7 @@ window.onload = function () {
     div.className="colors";
     div.style["background-color"]=colors[color];
     colorPicker.appendChild(div);
-    div.onmousedown=setColor.bind(null,color);
+    div.onmousedown=setColor.bind(null,parseInt(color));
     colorSelectors.push(div);
   }
 
