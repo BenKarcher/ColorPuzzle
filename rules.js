@@ -131,7 +131,7 @@ const clues = [
         }
     }, {
         description: "Exactly odd columns have an odd number of colored fields",
-        details: "Every odd column has an odd number of colored fields and every even row does not (indexing starts at 1)",
+        details: "Every odd column has an odd number of colored fields and every even column does not (indexing starts at 1)",
         check: function () {
             const points = getpoints(0);
             for (let i = 0; i < 6; i++)
